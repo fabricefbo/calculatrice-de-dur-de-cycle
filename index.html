@@ -1,208 +1,205 @@
-<html><head><base href="https://calculate.menstrual-cycles.com/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculatrice de Durée du Cycle Menstruel</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fef7f9;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #4a90e2; /* Changed color to a blue shade */
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="date"], input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #4a90e2; /* Changed to match the new title color */
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #3a78c2; /* Darker shade for hover state */
-        }
-        #result, #irregularResult {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e4f0fc; /* Changed to a light blue shade */
-            border-radius: 5px;
-            display: none;
-        }
-        .note {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #666;
-        }
-        .tab {
-            overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-            border-radius: 5px 5px 0 0;
-        }
-        .tab button {
-            background-color: inherit;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
-            color: #333;
-        }
-        .tab button:hover {
-            background-color: #ddd;
-        }
-        .tab button.active {
-            background-color: #4a90e2; /* Changed to match the new color scheme */
-            color: white;
-        }
-        .tabcontent {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-top: none;
-            border-radius: 0 0 5px 5px;
-        }
-    </style>
-    </head>
-    <body>
-    <div class="container">
-        <h1>Calculatrice de Durée du Cycle Menstruel</h1>
-        
-        <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'normalCycle')">Cycle Normal</button>
-            <button class="tablinks" onclick="openTab(event, 'irregularCycle')">Cycle Irrégulier</button>
-        </div>
-    
-        <div id="normalCycle" class="tabcontent" style="display:block;">
-            <h2>Calcul pour Cycle Normal</h2>
-            <form id="cycleForm">
-                <div class="form-group">
-                    <label for="startDate1">Date de début des règles précédentes :</label>
-                    <input type="date" id="startDate1" required>
-                </div>
-                <div class="form-group">
-                    <label for="startDate2">Date de début des règles actuelles :</label>
-                    <input type="date" id="startDate2" required>
-                </div>
-                <button type="submit">Calculer</button>
-            </form>
-            <div id="result"></div>
-        </div>
-    
-        <div id="irregularCycle" class="tabcontent">
-            <h2>Calcul pour Cycle Irrégulier</h2>
-            <form id="irregularForm">
-                <div class="form-group">
-                    <label>Durée des 6 derniers cycles (en jours) :</label>
-                    <input type="number" id="cycle1" placeholder="Cycle 1" required min="1">
-                    <input type="number" id="cycle2" placeholder="Cycle 2" required min="1">
-                    <input type="number" id="cycle3" placeholder="Cycle 3" required min="1">
-                    <input type="number" id="cycle4" placeholder="Cycle 4" required min="1">
-                    <input type="number" id="cycle5" placeholder="Cycle 5" required min="1">
-                    <input type="number" id="cycle6" placeholder="Cycle 6" required min="1">
-                </div>
-                <button type="submit">Calculer la moyenne</button>
-            </form>
-            <div id="irregularResult"></div>
-        </div>
-    
-        <div class="note">
-            <p><strong>Note :</strong> Un cycle menstruel normal dure généralement entre 21 et 35 jours. Si votre cycle est en dehors de cette plage ou varie considérablement d'un mois à l'autre, il peut être considéré comme irrégulier. Consultez un professionnel de santé pour des conseils personnalisés.</p>
-        </div>
-    </div>
-    
-    <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
+ <html><head><base href="https://calculate.menstrual-cycles.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatrice de Durée du Cycle Menstruel</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fef7f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
     }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+        color: #4a90e2;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="date"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #3a78c2;
+    }
+    #result, #irregularResult {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #e4f0fc;
+        border-radius: 5px;
+        display: none;
+    }
+    .note {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #000;
+        text-align: center;
+        font-weight: bold;
+    }
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        border-radius: 5px 5px 0 0;
+    }
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #333;
+    }
+    .tab button:hover {
+        background-color: #ddd;
+    }
+    .tab button.active {
+        background-color: #4a90e2;
+        color: white;
+    }
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Calculatrice de Durée du Cycle Menstruel</h1>
     
-    document.getElementById('cycleForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const startDate1 = new Date(document.getElementById('startDate1').value);
-        const startDate2 = new Date(document.getElementById('startDate2').value);
-        
-        const cycleDuration = (startDate2 - startDate1) / (1000 * 60 * 60 * 24);
-        const cycleType = (cycleDuration >= 21 && cycleDuration <= 35) ? "normal" : "irrégulier";
-        const nextPeriodDate = new Date(startDate2.getTime() + (cycleDuration * 24 * 60 * 60 * 1000));
-        
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = `
-            <h3>Résultats :</h3>
-            <p>Durée du cycle : ${cycleDuration.toFixed(0)} jours</p>
-            <p>Type de cycle : ${cycleType}</p>
-            <p>Date estimée des prochaines règles : ${nextPeriodDate.toLocaleDateString()}</p>
-        `;
-        resultDiv.style.display = 'block';
-    });
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'normalCycle')">Cycle Normal</button>
+        <button class="tablinks" onclick="openTab(event, 'irregularCycle')">Cycle Irrégulier</button>
+    </div>
+
+    <div id="normalCycle" class="tabcontent" style="display:block;">
+        <h2>Calcul pour Cycle Normal</h2>
+        <form id="cycleForm">
+            <div class="form-group">
+                <label for="startDate1">Date de début des règles précédentes :</label>
+                <input type="date" id="startDate1" required>
+            </div>
+            <div class="form-group">
+                <label for="startDate2">Date de début des règles actuelles :</label>
+                <input type="date" id="startDate2" required>
+            </div>
+            <button type="submit">Calculer</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <div id="irregularCycle" class="tabcontent">
+        <h2>Calcul pour Cycle Irrégulier</h2>
+        <form id="irregularForm">
+            <div class="form-group">
+                <label>Durée des 6 derniers cycles (en jours) :</label>
+                <input type="number" id="cycle1" placeholder="Cycle 1" required min="1">
+                <input type="number" id="cycle2" placeholder="Cycle 2" required min="1">
+                <input type="number" id="cycle3" placeholder="Cycle 3" required min="1">
+                <input type="number" id="cycle4" placeholder="Cycle 4" required min="1">
+                <input type="number" id="cycle5" placeholder="Cycle 5" required min="1">
+                <input type="number" id="cycle6" placeholder="Cycle 6" required min="1">
+            </div>
+            <button type="submit">Calculer la moyenne</button>
+        </form>
+        <div id="irregularResult"></div>
+    </div>
+
+    <div class="note">
+        <p>Note : Il est toujours recommandé de consulter un professionnel de santé pour des conseils personnalisés.</p>
+    </div>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.getElementById('cycleForm').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    document.getElementById('irregularForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const cycles = [
-            parseInt(document.getElementById('cycle1').value),
-            parseInt(document.getElementById('cycle2').value),
-            parseInt(document.getElementById('cycle3').value),
-            parseInt(document.getElementById('cycle4').value),
-            parseInt(document.getElementById('cycle5').value),
-            parseInt(document.getElementById('cycle6').value)
-        ];
-        
-        const averageCycle = cycles.reduce((a, b) => a + b, 0) / 6;
-        
-        const irregularResultDiv = document.getElementById('irregularResult');
-        irregularResultDiv.innerHTML = `
-            <h3>Résultats :</h3>
-            <p>Durée moyenne du cycle : ${averageCycle.toFixed(1)} jours</p>
-            <p>Vos cycles sont considérés comme irréguliers. La durée moyenne calculée est basée sur vos 6 derniers cycles.</p>
-            <p>Il est recommandé de consulter un professionnel de santé pour un suivi personnalisé de vos cycles menstruels.</p>
-        `;
-        irregularResultDiv.style.display = 'block';
-    });
-    </script>
-    </body>
-    </html>
+    const startDate1 = new Date(document.getElementById('startDate1').value);
+    const startDate2 = new Date(document.getElementById('startDate2').value);
+    
+    const cycleDuration = (startDate2 - startDate1) / (1000 * 60 * 60 * 24);
+    
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <h3>Résultat :</h3>
+        <p>Durée du cycle : ${cycleDuration.toFixed(0)} jours</p>
+    `;
+    resultDiv.style.display = 'block';
+});
+
+document.getElementById('irregularForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const cycles = [
+        parseInt(document.getElementById('cycle1').value),
+        parseInt(document.getElementById('cycle2').value),
+        parseInt(document.getElementById('cycle3').value),
+        parseInt(document.getElementById('cycle4').value),
+        parseInt(document.getElementById('cycle5').value),
+        parseInt(document.getElementById('cycle6').value)
+    ];
+    
+    const averageCycle = Math.round(cycles.reduce((a, b) => a + b, 0) / 6);
+    
+    const irregularResultDiv = document.getElementById('irregularResult');
+    irregularResultDiv.innerHTML = `
+        <h3>Résultats :</h3>
+        <p>Durée moyenne du cycle : ${averageCycle} jours</p>
+        <p>Vos cycles sont considérés comme irréguliers. La durée moyenne calculée est basée sur vos 6 derniers cycles.</p>
+    `;
+    irregularResultDiv.style.display = 'block';
+});
+</script>
+</body>
+</html>
